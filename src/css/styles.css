@@ -143,6 +143,7 @@ body {
     text-align: justify;
 }
 
+
 form input[type="text"],
 form input[type="password"],
 form input[type="email"]{
@@ -179,3 +180,6 @@ footer {
     line-height: 47px;
 }
 
+.bx-wrapper, .bx-viewport {
+    height: 250px !important;
+}
