@@ -12,8 +12,7 @@ $(document).ready(function () {
 
     //Posts
 
-    var posts = [
-        {
+    var posts = [{
             title: 'Prueba de titulo 1',
             date: 'Publicado el dia ' + moment().format("dddd") + ' de ' + moment().format("MMMM") + ' del ' + moment().format("YYYY"),
             content: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. '
@@ -37,7 +36,7 @@ $(document).ready(function () {
 
     posts.forEach((item, index) => {
         var post =
-        `
+            `
         <article class="post">
             <h2>${item.title}</h2>
             <span class="date">${item.date}</span>
@@ -53,22 +52,21 @@ $(document).ready(function () {
 
     });
 
-});
+    /*Selector de tema*/
+
+    var theme = $("#theme");
+
+    $("#to-green").click(function () {
+        theme.attr("href", "src/css/green.css");
+    });
+
+    $("#to-blue").click(function () {
+        theme.attr("href", "src/css/blue.css");
+    });
+
+    $("#to-red").click(function () {
+        theme.attr("href", "src/css/red.css");
+    });
 
 
-
-/*Selector de tema*/
-
-var theme = $("#theme");
-
-$("#to-green").click(function () {
-    theme.attr("href", "css/green.css");
-});
-
-$("#to-blue").click(function () {
-    theme.attr("href", "css/blue.css");
-});
-
-$("#to-red").click(function () {
-    theme.attr("href", "css/red.css");
 });
