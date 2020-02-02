@@ -2,41 +2,45 @@ $(document).ready(function () {
 
     //slider
 
-    $('.galeria').bxSlider({
-        mode: 'fade',
-        captions: 'true',
-        slidewidth: 1200,
-        responsive: true,
-        pager: true,
-    });
+    if (window.location.href.indexOf('index') > -1) {
+
+        $('.galeria').bxSlider({
+            mode: 'fade',
+            captions: 'true',
+            slidewidth: 1200,
+            responsive: true,
+            pager: true,
+        });
+
+    }
 
     //Posts
+    if (window.location.href.indexOf('index') > -1) {
+        var posts = [{
+                title: 'Prueba de titulo 1',
+                date: 'Publicado el dia ' + moment().format("dddd") + ' de ' + moment().format("MMMM") + ' del ' + moment().format("YYYY"),
+                content: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. '
+            },
+            {
+                title: 'Prueba de titulo 2',
+                date: 'Publicado el dia ' + moment().format("dddd") + ' de ' + moment().format("MMMM") + ' del ' + moment().format("YYYY"),
+                content: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. '
+            },
+            {
+                title: 'Prueba de titulo 3',
+                date: 'Publicado el dia ' + moment().format("dddd") + ' de ' + moment().format("MMMM") + ' del ' + moment().format("YYYY"),
+                content: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. '
+            },
+            {
+                title: 'Prueba de titulo 4',
+                date: 'Publicado el dia ' + moment().format("dddd") + ' de ' + moment().format("MMMM") + ' del ' + moment().format("YYYY"),
+                content: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. '
+            },
+        ];
 
-    var posts = [{
-            title: 'Prueba de titulo 1',
-            date: 'Publicado el dia ' + moment().format("dddd") + ' de ' + moment().format("MMMM") + ' del ' + moment().format("YYYY"),
-            content: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. '
-        },
-        {
-            title: 'Prueba de titulo 2',
-            date: 'Publicado el dia ' + moment().format("dddd") + ' de ' + moment().format("MMMM") + ' del ' + moment().format("YYYY"),
-            content: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. '
-        },
-        {
-            title: 'Prueba de titulo 3',
-            date: 'Publicado el dia ' + moment().format("dddd") + ' de ' + moment().format("MMMM") + ' del ' + moment().format("YYYY"),
-            content: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. '
-        },
-        {
-            title: 'Prueba de titulo 4',
-            date: 'Publicado el dia ' + moment().format("dddd") + ' de ' + moment().format("MMMM") + ' del ' + moment().format("YYYY"),
-            content: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de text. '
-        },
-    ];
-
-    posts.forEach((item, index) => {
-        var post =
-            `
+        posts.forEach((item, index) => {
+            var post =
+                `
         <article class="post">
             <h2>${item.title}</h2>
             <span class="date">${item.date}</span>
@@ -46,11 +50,13 @@ $(document).ready(function () {
             <a href="#" class="button-more">Leer más</a>
         </article>`;
 
-        console.log(post);
+            console.log(post);
 
-        $("#posts").append(post);
+            $("#posts").append(post);
 
-    });
+        });
+
+    }
 
     /*Selector de tema*/
 
@@ -70,7 +76,7 @@ $(document).ready(function () {
 
     //Login falso
 
-    $("#login form").submit(function(){
+    $("#login form").submit(function () {
         var form_name = $("#form_name").val();
 
         localStorage.setItem("form_name", form_name);
@@ -79,17 +85,22 @@ $(document).ready(function () {
 
     var form_name = localStorage.getItem("form_name");
 
-    if(form_name != null && form_name != "undefined"){
+    if (form_name != null && form_name != "undefined") {
         var about_parrafo = $("#about p");
 
-        about_parrafo.html("<br><strong>Bienvenido, " +form_name+"</strong>");
+        about_parrafo.html("<br><strong>Bienvenido, " + form_name + "</strong>");
         about_parrafo.append("<a href='#' id='logout'>Cerrar sesion</a>");
-        
+
         $("#login").hide();
 
-        $("#logout").click(function(){
+        $("#logout").click(function () {
             localStorage.clear();
             location.reload();
         });
-    } 
+    }
+
+    if (window.location.href.indexOf('about') > -1) {
+        $("#acordeon").accordion();
+    }
+
 });
